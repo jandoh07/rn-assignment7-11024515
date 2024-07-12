@@ -19,7 +19,6 @@ const HomeScreen = ({ navigation }) => {
         const res = await fetch("https://fakestoreapi.com/products?limit=16");
         const data = await res.json();
         setProducts(data);
-        // console.log(data[0].image);
       } catch (error) {
         console.log(error);
       }
@@ -135,57 +134,5 @@ const styles = StyleSheet.create({
     gap: 10,
   },
 });
-
-const imageCatalogue = [
-  {
-    id: 1,
-    image: require("../assets/dress1.png"),
-    category: "Office Wear",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-  {
-    id: 2,
-    image: require("../assets/dress2.png"),
-    category: "Black",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-  {
-    id: 3,
-    image: require("../assets/dress3.png"),
-    category: "Church Wear",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-  {
-    id: 4,
-    image: require("../assets/dress4.png"),
-    category: "Lamerei",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-  {
-    id: 5,
-    image: require("../assets/dress5.png"),
-    category: "21WN",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-  {
-    id: 6,
-    image: require("../assets/dress6.png"),
-    category: "Lopo",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-  {
-    id: 7,
-    image: require("../assets/dress7.png"),
-    category: "Lame",
-    name: "reversible angora cardigan",
-    price: "$120",
-  },
-];
 
 export default HomeScreen;

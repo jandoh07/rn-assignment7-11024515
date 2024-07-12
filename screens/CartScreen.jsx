@@ -17,7 +17,6 @@ const CartScreen = () => {
       try {
         const value = await AsyncStorage.getItem("cart");
         setCart(JSON.parse(value));
-        setScreen("cart");
       } catch (error) {
         console.log(error);
       }
@@ -43,59 +42,58 @@ const CartScreen = () => {
         <Text style={styles.header}>CHECKOUT</Text>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {cart &&
-          cart.map((item) => (
-            <View key={item.id} style={styles.cartItem}>
-              <View style={{ width: 120 }}>
-                <Image
-                  source={{ uri: `${item.image}` }}
-                  resizeMode="contain"
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </View>
-              <View>
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "400",
-                    paddingVertical: 2,
-                    width: 170,
-                  }}
-                >
-                  {item.title}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: "400",
-                    paddingVertical: 2,
-                  }}
-                >
-                  {item.category}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "400",
-                    color: "orange",
-                    paddingVertical: 2,
-                  }}
-                >
-                  ${item.price}
-                </Text>
-                <TouchableOpacity
-                  style={{
-                    paddingVertical: 2,
-                    flexDirection: "row",
-                    justifyContent: "flex-end",
-                  }}
-                  onPress={() => removeFromCart(item)}
-                >
-                  <Image source={require("../assets/remove.png")} />
-                </TouchableOpacity>
-              </View>
+        {cart?.map((item) => (
+          <View key={item.id} style={styles.cartItem}>
+            <View style={{ width: 120 }}>
+              <Image
+                source={{ uri: `${item.image}` }}
+                resizeMode="contain"
+                style={{ width: "100%", height: "100%" }}
+              />
             </View>
-          ))}
+            <View>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: "400",
+                  paddingVertical: 2,
+                  width: 170,
+                }}
+              >
+                {item.title}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "400",
+                  paddingVertical: 2,
+                }}
+              >
+                {item.category}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: "400",
+                  color: "orange",
+                  paddingVertical: 2,
+                }}
+              >
+                ${item.price}
+              </Text>
+              <TouchableOpacity
+                style={{
+                  paddingVertical: 2,
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                }}
+                onPress={() => removeFromCart(item)}
+              >
+                <Image source={require("../assets/remove.png")} />
+              </TouchableOpacity>
+            </View>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );

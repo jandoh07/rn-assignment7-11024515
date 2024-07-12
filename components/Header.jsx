@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeaderContext from "../context/HeaderContext";
 import { Ionicons } from "@expo/vector-icons";
 
 const Header = ({ screen }) => {
